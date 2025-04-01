@@ -1,0 +1,21 @@
+Dans Next.js, layout.tsx est un composant spécial qui englobe toutes les pages d'un dossier.
+
+Exemple d'arborescence Next.js avec App Router :
+
+/app
+ ├── layout.tsx  👈 (RootLayout)
+ ├── page.tsx  👈 (Page d'accueil)
+ ├── prestations/
+ │   ├── page.tsx  👈 (Page Prestations)
+ ├── galerie/
+ │   ├── page.tsx  👈 (Page Galerie)
+ ├── evenements/
+ │   ├── page.tsx  👈 (Page Événements)
+ ├── contact/
+ │   ├── page.tsx  👈 (Page Contact)
+
+
+dans le layout:
+({ children }: { children: React.ReactNode }) //déstructuration avec typage TypeScript.
+quand on clique sur un onglet de la navbar, la page devient la props qui est ici children et qui sera envoyer dans 
+<main>{children}</main> {/* Ici, Next.js mettra la page demandée */}
