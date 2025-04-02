@@ -1,6 +1,8 @@
 import type { Metadata } from "next"; //gestions des metadonnées
 import Link from "next/link"; // creer des liens sans rechargement de page pour optimisé le seo
 import "./globals.css";
+import Footer from "./footer";
+
 
 export const metadata: Metadata = {
   // ici sont géré les metadonnées
@@ -42,6 +44,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Link href="/contact">Contact</Link>
         </nav>
         <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );
