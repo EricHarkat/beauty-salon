@@ -1,12 +1,10 @@
-import type { Metadata } from "next"; //gestions des metadonnées
-import Link from "next/link"; // creer des liens sans rechargement de page pour optimisé le seo
+import type { Metadata } from "next"; // Server component
+import SessionWrapper from "./components/SessionWrapper";
 import "./globals.css";
 import Footer from "./footer";
-
+import NavBar from "./components/NavBar"; // Assure-toi que le chemin est correct
 
 export const metadata: Metadata = {
-  // ici sont géré les metadonnées
-  // Next.js injecte ces valeurs dans les balises <title> et <meta> du <head> de chaque page automatiquement.
   title: "Institut de Beauté - Soins et Bien-être",
   description:
     "Découvrez notre institut de beauté spécialisé en soins du visage, massages et épilation. Prenez rendez-vous dès maintenant.",
@@ -29,22 +27,15 @@ export const metadata: Metadata = {
   },
 };
 
-// le fichier layout.tsx est le Root Layout de l'application Next.js.
-// Il sert de template principal pour toutes les pages du site.
-// Le layout englobe toutes les page du website
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr">
       <body>
-        <nav className="p-4 bg-pink-500 text-white flex gap-4">
-          <Link href="/">Accueil</Link>
-          <Link href="/prestations">Prestations</Link>
-          <Link href="/galerie">Galerie</Link>
-          <Link href="/evenements">Événements</Link>
-          <Link href="/contact">Contact</Link>
-        </nav>
-        <main>{children}</main>
-        <Footer />
+        <SessionWrapper> {/* On encapsule tout avec `SessionProvider` */}
+          <NavBar />
+          <main>{children}</main>
+          <Footer />
+        </SessionWrapper>
       </body>
     </html>
   );

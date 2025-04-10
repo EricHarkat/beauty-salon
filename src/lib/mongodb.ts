@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const MONGODB_URI = process.env.MONGODB_URI || "";
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/events";
 
 if (!MONGODB_URI) {
   throw new Error("⚠️ La variable d'environnement MONGODB_URI est manquante !");
